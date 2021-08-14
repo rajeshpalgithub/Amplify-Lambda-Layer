@@ -1,0 +1,23 @@
+{
+  "function": {
+    "amplifylambdalayerstestlayer": {
+      "providerPlugin": "awscloudformation",
+      "service": "LambdaLayer",
+      "build": true
+    },
+    "testlayer": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "amplifylambdalayerstestlayer",
+          "attributes": [
+            "Arn"
+          ]
+        }
+      ]
+    }
+  }
+}
